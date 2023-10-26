@@ -1,0 +1,7 @@
+struct product {
+	int id;
+	char name[20];
+	char category[10];
+	int expired_data;
+	int stock;
+};
