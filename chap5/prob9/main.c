@@ -12,6 +12,11 @@ int main() {
     int totalLines = 0;
     
     fp = fopen("test.txt", "r");
+
+    if(fp == NULL) {
+	    perror("Error");
+	    return 1;
+    }
     
     while (fgets(line, sizeof(line), fp) != NULL) {
         strcpy(lines[totalLines], line);
