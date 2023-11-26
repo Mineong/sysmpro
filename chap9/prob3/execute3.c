@@ -5,14 +5,17 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int main( ) 
-{
-   printf("\n");
-   if (fork( ) == 0) {
-      execl("/bin/echo", "echo", "hello", NULL);
-      fprintf(stderr,"첫 번째 실패"); 
-      exit(1);
-   }
-   printf("부모 프로세스 끝\n");
+int main(int argc, char *argv[])
+{ 
+     	int child, pid, status;
+     	pid = fork( );
+     	if (pid == 0) { 
+	  	execvp(argv[1], &argv[1]);
+	  	fprintf(stderr, "%s:start impossible\n",argv[1]);
+     	} else { 
+	  	child = wait(&status);
+	  	printf("[%d] child process %d end \n", getpid(), pid);
+	  	printf("\tend code %d \n", status>>8);
+     	}
 }
 
