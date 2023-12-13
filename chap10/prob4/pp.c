@@ -23,10 +23,7 @@ int main() {
             break;
         }
     }
-
     printStack(top);
-    printf("\n");
-
     return 0;
 }
 
@@ -62,10 +59,8 @@ void printStack(struct node *top) {
     }
 
     while (top != NULL) {
-        printf("%d ", top->data);
+        printf("%d\n", top->data);
         top = top->next;
     }
-
-    printf("\n");
 }
 
